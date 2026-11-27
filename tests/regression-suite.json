@@ -3252,6 +3252,42 @@
       }
     },
     {
+      "id": "decoded fragment exception protects a name from remove-all",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/#%6Bid=value&drop=1",
+      "expectedOutput": "https://example.com/#%6Bid=value",
+      "providers": {
+        "fragment-exception": {
+          "domainPatterns": ["*"],
+          "rules": ["$removeparam", "@@$removeparam=kid"]
+        }
+      }
+    },
+    {
+      "id": "removeparam cache distinguishes an encoded NUL in a name from one in a value",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/?track=%00a&track%00=a&keep=1",
+      "expectedOutput": "https://example.com/?track%00=a&keep=1",
+      "providers": {
+        "distinct-names": {
+          "domainPatterns": ["*"],
+          "rules": ["$removeparam=track"]
+        }
+      }
+    },
+    {
+      "id": "removeparam cache distinguishes a control character from repeated values",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/?id=a%01b#id=a&id=b&keep=1",
+      "expectedOutput": "https://example.com/?id=a%01b#keep=1",
+      "providers": {
+        "distinct-values": {
+          "domainPatterns": ["*"],
+          "rules": ["$removeparam=/^id=a$/"]
+        }
+      }
+    },
+    {
       "id": "redirect target keeps escapes of a link carried in its path (fieldRedirections)",
       "dialect": "provider",
       "input": "https://wrap.example/url?q=https://click.example/CL0/https:%252F%252Fsite.example%252Fpost%252F%253Fref%253Dmail%2526id%253D7/1/abc%3D9&usg=x",
@@ -3925,6 +3961,256 @@
       },
       "preferences": {
         "globalStatus": true
+      }
+    },
+    {
+      "id": "page exception checks to= and party against the requested resource",
+      "dialect": "providerWebRequest",
+      "input": "https://cdn.example.net/x.js?track=y&keep=1",
+      "expectedOutput": "https://cdn.example.net/x.js?track=y&keep=1",
+      "request": {
+        "type": "script",
+        "documentUrl": "https://page.example/tools/editor/"
+      },
+      "providers": {
+        "global": {
+          "domainPatterns": [
+            "*"
+          ],
+          "rules": [
+            "$removeparam=track"
+          ]
+        },
+        "page": {
+          "domainPatterns": [
+            "||page.example^"
+          ],
+          "rules": [
+            "@@||page.example/tools/editor/$removeparam=track,third-party,to=cdn.example.net"
+          ]
+        }
+      }
+    },
+    {
+      "id": "page exception cache distinguishes resource hosts on the same page",
+      "dialect": "providerWebRequest",
+      "input": "https://other.example.net/x.js?track=y&keep=1",
+      "expectedOutput": "https://other.example.net/x.js?keep=1",
+      "request": {
+        "type": "script",
+        "documentUrl": "https://page.example/tools/editor/"
+      },
+      "providers": {
+        "global": {
+          "domainPatterns": [
+            "*"
+          ],
+          "rules": [
+            "$removeparam=track"
+          ]
+        },
+        "page": {
+          "domainPatterns": [
+            "||page.example^"
+          ],
+          "rules": [
+            "@@||page.example/tools/editor/$removeparam=track,third-party,to=cdn.example.net"
+          ]
+        }
+      }
+    },
+    {
+      "id": "page strict-first-party exception does not protect a third-party script",
+      "dialect": "providerWebRequest",
+      "input": "https://cdn.example.net/x.js?track=y&keep=1",
+      "expectedOutput": "https://cdn.example.net/x.js?keep=1",
+      "request": {
+        "type": "script",
+        "documentUrl": "https://page.example/tools/editor/"
+      },
+      "providers": {
+        "global": {
+          "domainPatterns": [
+            "*"
+          ],
+          "rules": [
+            "$removeparam=track"
+          ]
+        },
+        "page": {
+          "domainPatterns": [
+            "||page.example^"
+          ],
+          "rules": [
+            "@@||page.example/tools/editor/$removeparam=track,strict-first-party"
+          ]
+        }
+      }
+    },
+    {
+      "id": "page exception and its provider must match the same frame URL",
+      "dialect": "providerWebRequest",
+      "input": "https://cdn.example.net/x.js?track=y&keep=1",
+      "expectedOutput": "https://cdn.example.net/x.js?keep=1",
+      "request": {
+        "type": "script",
+        "documentUrl": "https://page.example/tools/editor/",
+        "originUrl": "https://other.example/tools/editor/"
+      },
+      "providers": {
+        "global": {
+          "domainPatterns": [
+            "*"
+          ],
+          "rules": [
+            "$removeparam=track"
+          ]
+        },
+        "page": {
+          "domainPatterns": [
+            "||page.example^"
+          ],
+          "rules": [
+            "@@||other.example/tools/editor/$removeparam=track"
+          ]
+        }
+      }
+    },
+    {
+      "id": "provider index includes wildcard alternatives",
+      "dialect": "providerWebRequest",
+      "input": "https://elsewhere.test/campaign?x=1&keep=2",
+      "expectedOutput": "https://elsewhere.test/campaign?keep=2",
+      "providers": {
+        "provider": {
+          "domainPatterns": [
+            "||google.com^",
+            "*"
+          ],
+          "rules": [
+            "$removeparam=x"
+          ]
+        }
+      }
+    },
+    {
+      "id": "provider index permits an unanchored pattern in a path",
+      "dialect": "providerWebRequest",
+      "input": "https://elsewhere.test/campaign?x=1&keep=2",
+      "expectedOutput": "https://elsewhere.test/campaign?keep=2",
+      "providers": {
+        "provider": {
+          "domainPatterns": [
+            "campaign"
+          ],
+          "rules": [
+            "$removeparam=x"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hostname anchor uses later matching label",
+      "dialect": "providerWebRequest",
+      "input": "https://example.commercial.example.com/landing?x=1&keep=2",
+      "expectedOutput": "https://example.commercial.example.com/landing?keep=2",
+      "providers": {
+        "provider": {
+          "domainPatterns": [
+            "*"
+          ],
+          "rules": [
+            "||example.com/landing$removeparam=x"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hostname anchor uses hostname after credentials",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com@example.com/landing?x=1&keep=2",
+      "expectedOutput": "https://example.com@example.com/landing?keep=2",
+      "providers": {
+        "provider": {
+          "domainPatterns": [
+            "*"
+          ],
+          "rules": [
+            "||example.com/landing$removeparam=x"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hostname anchor uses same labels twice",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com.example.com/landing?x=1&keep=2",
+      "expectedOutput": "https://example.com.example.com/landing?keep=2",
+      "providers": {
+        "provider": {
+          "domainPatterns": [
+            "*"
+          ],
+          "rules": [
+            "||example.com/landing$removeparam=x"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hostname anchor does not match a port in the credentials",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com:123@example.com:888/landing?x=1&keep=2",
+      "expectedOutput": "https://example.com:123@example.com:888/landing?x=1&keep=2",
+      "providers": {
+        "ports": {
+          "domainPatterns": ["*"],
+          "rules": ["||example.com:123^$removeparam=x"]
+        }
+      }
+    },
+    {
+      "id": "hostname anchor uses the ASCII hostname for a Unicode input URL",
+      "dialect": "providerWebRequest",
+      "input": "https://bücher.example/landing?x=1&keep=2",
+      "expectedOutput": "https://xn--bcher-kva.example/landing?keep=2",
+      "providers": {
+        "idn": {
+          "domainPatterns": ["||bücher.example/landing"],
+          "rules": ["$removeparam=x"]
+        }
+      }
+    },
+    {
+      "id": "hostname anchor rejects a partial label suffix",
+      "dialect": "providerWebRequest",
+      "input": "https://xample.net/path?x=1&keep=2",
+      "expectedOutput": "https://xample.net/path?x=1&keep=2",
+      "providers": {
+        "provider": {
+          "domainPatterns": [
+            "*"
+          ],
+          "rules": [
+            "||ample.net^$removeparam=x"
+          ]
+        }
+      }
+    },
+    {
+      "id": "trailing wildcard before an end anchor can consume part of a URL token",
+      "dialect": "providerWebRequest",
+      "input": "https://example.com/?x=1&keep=promo123",
+      "expectedOutput": "https://example.com/?keep=promo123",
+      "providers": {
+        "provider": {
+          "domainPatterns": [
+            "*"
+          ],
+          "rules": [
+            "*keep=promo*|$removeparam=x"
+          ]
+        }
       }
     },
     {

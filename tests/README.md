@@ -33,5 +33,7 @@ The command exits with 1 when any case fails.
 
 ## Run in the browser
 
-Open `html/regression.html` from the loaded add-on. It also loads each input
-URL in a background tab, which the Node runner cannot do.
+In the loaded add-on's Settings, choose **Import**, select
+`tests/regression-suite.json`, and confirm **Run regression test**. The report
+opens in a new tab and runs automatically. Each input URL loads in a
+background tab.

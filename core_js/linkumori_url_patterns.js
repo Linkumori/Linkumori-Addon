@@ -141,11 +141,8 @@
     // Every run of whole labels of the URL's hostname, joined with dots
     // ("a.b.c" gives a, b, c, a.b, b.c and a.b.c): what hostKey() is looked
     // up in. Labels are split at any character that cannot be in a label,
-    // not only at dots: the engine's host check (isAnchoredByHostname, as in
-    // Ghostery) can take such a character as the end of the host, as in
-    // "www.cdn.org,ref" for ||cdn.org^. Extra keys only mean more rules are
-    // checked in full. Empty when the URL has no host (it then matches no
-    // pattern).
+    // not only at dots. Extra keys only mean more rules are checked in full.
+    // Empty when the URL has no host.
     function hostKeysOf(url) {
         const entry = urlEntry(url);
         if (!entry.request) return NO_HOST_KEYS;
@@ -173,6 +170,9 @@
             for (const request of [entry.request, entry.requestNoDots]) {
                 if (!request) continue;
                 for (const token of request.normalizedUrl.match(URL_TOKEN) || []) tokens.add(token);
+                // Host-anchored filters see ASCII labels even for an input
+                // URL written with a Unicode or percent-escaped hostname.
+                for (const token of request.hostname.match(URL_TOKEN) || []) tokens.add(token);
             }
             entry.urlTokens = tokens;
         }
@@ -228,7 +228,7 @@
 
     // The labels every URL a ||host filter matches has in its hostname, as
     // a run of whole labels, or null when there are none to rely on (no
-    // host anchor). This follows the engine's isAnchoredByHostname(): the
+    // host anchor). This follows the engine's hostname matching: the
     // filter's host must sit in the URL's hostname on label boundaries,
     // except that a dot at either end of it, or a "*" right after it,
     // leaves that end open. So a leading or trailing dot is dropped (the

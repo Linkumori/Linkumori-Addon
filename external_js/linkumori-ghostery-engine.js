@@ -93,8 +93,23 @@ var LinkumoriGhosteryEngine = (() => {
             this.url = url;
             this.hostname = hostname || '';
             this.normalizedUrl = url.toLowerCase();
-            this.isHttp = url.startsWith('http:');
-            this.isHttps = url.startsWith('https:');
+            this.isHttp = this.normalizedUrl.startsWith('http:');
+            this.isHttps = this.normalizedUrl.startsWith('https:');
+            this.urlFromHostname = null;
+        }
+
+        getUrlFromHostname() {
+            if (this.urlFromHostname === null) {
+                // Keep the port, path, query and fragment as supplied. The
+                // hostname used for matching is already in ASCII form.
+                const raw = this.normalizedUrl.trimStart();
+                const authority = /^[a-z][a-z0-9+.-]*:[/\\]*(?:[^/?#\\]*@)?(\[[^\]]+\]|[^:/?#\\]+)/.exec(raw);
+                if (!authority) return '';
+                const dots = authority[1].match(/\.+$/);
+                this.urlFromHostname = this.hostname + (dots ? dots[0] : '') +
+                    raw.slice(authority[0].length);
+            }
+            return this.urlFromHostname;
         }
     }
 
@@ -131,23 +146,6 @@ var LinkumoriGhosteryEngine = (() => {
     }
 
     const MATCH_ALL = /(?:)/;
-
-    // Whether `filterHostname` (from ||host) names `hostname` or one of its
-    // parents, on label boundaries (a dot at either end of the filter's
-    // hostname, or a following "*", stands for the boundary).
-    function isAnchoredByHostname(filterHostname, hostname, followedByWildcard) {
-        const fl = filterHostname.length;
-        if (fl === 0) return true;
-        if (fl > hostname.length) return false;
-        if (fl === hostname.length) return filterHostname === hostname;
-        const at = hostname.indexOf(filterHostname);
-        if (at === -1) return false;
-        const endOk = followedByWildcard || hostname.charCodeAt(fl) === 46 || filterHostname.charCodeAt(fl - 1) === 46;
-        if (at === 0) return endOk;
-        const startOk = hostname.charCodeAt(at - 1) === 46 || filterHostname.charCodeAt(0) === 46;
-        if (hostname.length === at + fl) return startOk;
-        return endOk && startOk;
-    }
 
     class NetworkFilter {
         // Parses a pattern, or returns null when it is not one ("$options",
@@ -193,7 +191,7 @@ var LinkumoriGhosteryEngine = (() => {
                 }
             }
 
-            if (end - start > 0 && line.charCodeAt(end - 1) === 42) end--;
+            if (!(mask & RIGHT) && end - start > 0 && line.charCodeAt(end - 1) === 42) end--;
             if (!(mask & HOST) && end - start > 0 && line.charCodeAt(start) === 42) { mask &= ~LEFT; start++; }
 
             // |http://, |https://, |http*:// and |ws:// alone: a scheme.
@@ -235,36 +233,38 @@ var LinkumoriGhosteryEngine = (() => {
         getFilter() { return this.filter || ''; }
         getHostname() { return this.hostname || ''; }
 
-        match(request) {
-            if ((request.isHttps && !(this.mask & HTTPS)) || (request.isHttp && !(this.mask & HTTP))) return false;
-            const url = request.normalizedUrl;
+        matchPattern(url, start) {
             const pattern = this.getFilter();
             const mask = this.mask;
-
-            if (mask & FULL_REGEX) return this.regex.test(url);
-
-            if (mask & HOST) {
-                const host = this.getHostname();
-                if (!isAnchoredByHostname(host, request.hostname,
-                    this.filter !== undefined && this.filter.charCodeAt(0) === 42)) return false;
-                const afterHost = url.indexOf(host) + host.length;
-                if (mask & REGEX) return this.regex.test(url.slice(afterHost));
-                if ((mask & RIGHT) && (mask & LEFT)) return pattern === url.slice(afterHost);
-                if (mask & RIGHT) {
-                    if (this.filter === undefined) {
-                        return host.length === request.hostname.length || request.hostname.endsWith(host);
-                    }
-                    return url.endsWith(pattern);
-                }
-                if (mask & LEFT) return url.startsWith(pattern, afterHost);
-                return this.filter === undefined || url.indexOf(pattern, afterHost) !== -1;
+            if (mask & (REGEX | FULL_REGEX)) return this.regex.test(url.slice(start));
+            if (mask & LEFT) {
+                return url.startsWith(pattern, start) && (!(mask & RIGHT) || start + pattern.length === url.length);
             }
+            if (mask & RIGHT) return start + pattern.length <= url.length && url.endsWith(pattern);
+            return url.indexOf(pattern, start) !== -1;
+        }
 
-            if (mask & REGEX) return this.regex.test(url);
-            if ((mask & LEFT) && (mask & RIGHT)) return url === pattern;
-            if (mask & LEFT) return url.startsWith(pattern);
-            if (mask & RIGHT) return url.endsWith(pattern);
-            return this.filter === undefined || url.indexOf(pattern) !== -1;
+        match(request) {
+            if ((request.isHttps && !(this.mask & HTTPS)) || (request.isHttp && !(this.mask & HTTP))) return false;
+            if (!this.isHostnameAnchor()) return this.matchPattern(request.normalizedUrl, 0);
+
+            const host = this.getHostname(), hostname = request.hostname;
+            if (!host) return this.matchPattern(request.getUrlFromHostname(), 0);
+            if (!this.hasFilter() && this.isRightAnchor()) {
+                if (hostname === host) return true;
+                const at = hostname.length - host.length;
+                return at > 0 && hostname.endsWith(host) && (hostname[at - 1] === '.' || host.startsWith('.'));
+            }
+            // Each occurrence on label boundaries can anchor the rest of the
+            // pattern, e.g. the second "site.test" in site.test.site.test/go.
+            const openEnd = host.endsWith('.') || this.getFilter().startsWith('*');
+            for (let at = hostname.indexOf(host); at !== -1; at = hostname.indexOf(host, at + 1)) {
+                const end = at + host.length;
+                const left = at === 0 || hostname[at - 1] === '.' || host.startsWith('.');
+                const right = end === hostname.length || hostname[end] === '.' || openEnd;
+                if (left && right && (!this.hasFilter() || this.matchPattern(request.getUrlFromHostname(), end))) return true;
+            }
+            return false;
         }
     }
 

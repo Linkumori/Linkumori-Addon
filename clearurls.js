@@ -449,7 +449,7 @@ function getHostnameLookupTokens(hostnameInput) {
     if (!normalized) return [];
     function addLabels(v) {
         String(v || '').split('.').map(l => l.trim().toLowerCase())
-            .filter(l => /^[a-z0-9-]+$/i.test(l)).filter(l => l !== '*')
+            .filter(l => /^[a-z0-9_-]+$/i.test(l))
             .forEach(l => tokens.add(l));
     }
     addLabels(normalized);
@@ -1279,7 +1279,7 @@ function getLinkumoriRuleHostKey(rule) {
     return key;
 }
 
-function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false, targetHost = undefined, requestType = null) {
+function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null, isHistoryUpdate = false, targetHost = undefined, requestType = null, allowContextPattern = true) {
     if (!linkumoriRule || !fullUrl) return false;
     // PERF: the URL pattern check below must pass for this to be true. A
     // ||host pattern can only match a URL whose hostname has its labels, so
@@ -1289,7 +1289,7 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null,
     // below. Exact, not a guess: see hostKeyOf in linkumori_url_patterns.js.
     const hostKey = getLinkumoriRuleHostKey(linkumoriRule);
     if (hostKey !== null && !LinkumoriUrlPatterns.urlHasHostKey(fullUrl, hostKey) &&
-        !(linkumoriRule.isException && request &&
+        !(allowContextPattern && linkumoriRule.isException && request &&
             requestContextManager.getContextURLs(request).some(u => u && LinkumoriUrlPatterns.urlHasHostKey(u, hostKey)))) {
         return false;
     }
@@ -1303,7 +1303,7 @@ function matchLinkumoriRemoveParamTarget(linkumoriRule, fullUrl, request = null,
         !coreRuleHasActivePatternForUrl(linkumoriRule, fullUrl)) return false;
     if (linkumoriRule.urlPattern && linkumoriRule.urlPattern !== '*') {
         if (!matchDomainPattern(fullUrl, linkumoriRule.urlPattern)) {
-            if (linkumoriRule.isException && request) {
+            if (allowContextPattern && linkumoriRule.isException && request) {
                 const contextUrls = requestContextManager.getContextURLs(request);
                 if (!contextUrls.some(u => u && matchDomainPattern(u, linkumoriRule.urlPattern))) return false;
             } else return false;
@@ -1689,20 +1689,6 @@ function resolveLinkumoriParamDecision(fieldName, values, activeRules, activeExc
         rule: matchedRule
     };
     return { handled: false, remove: false, rewrite: false, matchedRule: null };
-}
-
-function linkumoriRemoveParamExceptionMatchesMethod(linkumoriRule, request = null) {
-    const rm = (request && typeof request.method === 'string') ? request.method.toUpperCase() : '';
-    if (linkumoriRule.includeMethods.length > 0 && !linkumoriRule.includeMethods.includes(rm)) return false;
-    if (linkumoriRule.excludeMethods.length > 0 && linkumoriRule.excludeMethods.includes(rm)) return false;
-    return true;
-}
-
-function linkumoriRemoveParamExceptionMatchesContext(linkumoriRule, contextUrls, request = null) {
-    if (!linkumoriRule || !linkumoriRule.isException || !Array.isArray(contextUrls)) return false;
-    if (!linkumoriRemoveParamMatchesRequestType(linkumoriRule, request)) return false;
-    if (!linkumoriRemoveParamExceptionMatchesMethod(linkumoriRule, request)) return false;
-    return contextUrls.some(cu => cu && matchLinkumoriRemoveParamTarget(linkumoriRule, cu, request));
 }
 
 function resolveLinkumoriHistoryBypassProtection(rule, defaults) {
@@ -2324,10 +2310,11 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
             // array; both are matched the same way.
             const values = Array.isArray(paramValues) ? paramValues
                 : (paramValues instanceof Set ? Array.from(paramValues) : []);
-            const cacheKey = String(paramName || '') + "\u0000" + values.join("\u0001");
-            if (cache.has(cacheKey)) return cache.get(cacheKey);
+            const cached = cache.get(paramName);
+            if (cached && values.length === cached.values.length &&
+                values.every((value, i) => value === cached.values[i])) return cached.decision;
             const decision = resolveLinkumoriParamDecision(paramName, values, activeRules, activeExceptions);
-            cache.set(cacheKey, decision);
+            cache.set(paramName, { values, decision });
             return decision;
         };
         linkumoriState = { activeRules, activeExceptions, getDecision };
@@ -2480,10 +2467,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null, t
 
             const decide = (key, values) => {
                 const decision = getLinkumoriDecision(key, values);
-                if (!decision.remove && !decision.rewrite) return { handled: false };
+                if (!decision.remove && !decision.rewrite) return decision;
                 if (decision.rewrite) {
                     const rewriteKey = removeParamRewriteKey(decision.rule);
-                    if (rewrittenBefore.has(rewriteKey)) return { handled: false };
+                    if (rewrittenBefore.has(rewriteKey)) return { handled: true };
                     rewrittenNow.add(rewriteKey);
                 }
                 if (!matchedRuleForLog && decision.matchedRule) {
@@ -2872,7 +2859,6 @@ function start() {
                     if (!providersByToken[token]) providersByToken[token] = [];
                     providersByToken[token].push(provider);
                 }
-                if (provider.requiresGlobalFallback()) globalProviders.push(provider);
             } else {
                 globalProviders.push(provider);
             }
@@ -3210,7 +3196,7 @@ function start() {
                 indexPatterns: indexPatterns.slice(), methods: methods.slice(), name, resourceTypes: resourceTypes.slice(), urlPattern: urlPatternSource };
         };
 
-        this.getDomainLookupTokens = function () {
+        this.getLookupTokens = function () {
             const tokens = new Set();
             function cleanDomainPattern(pattern) {
                 let v = String(pattern || '').trim().toLowerCase();
@@ -3237,27 +3223,22 @@ function start() {
                     if (labels.length > 0) return [labels[labels.length - 1].toLowerCase()];
                 }
                 const labels = normalized.split('.').map(l => l.trim())
-                    .filter(l => /^[a-z0-9-]+$/i.test(l)).filter(l => l !== '*');
+                    .filter(l => /^[a-z0-9_-]+$/i.test(l));
                 if (labels.length > 1) return labels.slice(0, -1).map(l => l.toLowerCase());
                 return labels.map(l => l.toLowerCase());
             }
             const sources = domainPatterns.length > 0 ? domainPatterns : indexPatterns;
             for (const pattern of sources) {
-                const cleaned = cleanDomainPattern(pattern);
-                if (!cleaned) continue;
-                for (const token of tokenFromHostnameLikePattern(cleaned)) tokens.add(token);
+                // A domain pattern can match anywhere in the URL. Only a
+                // hostname anchor guarantees a label for the provider index.
+                const host = domainPatterns.length > 0
+                    ? LinkumoriUrlPatterns.hostKey(pattern)
+                    : cleanDomainPattern(pattern);
+                const labels = host ? tokenFromHostnameLikePattern(host) : [];
+                if (domainPatterns.length > 0 && labels.length === 0) return [];
+                for (const token of labels) tokens.add(token);
             }
             return Array.from(tokens);
-        };
-
-        this.getLookupTokens = function () {
-            const tokens = new Set();
-            for (const t of this.getDomainLookupTokens()) if (t) tokens.add(t);
-            return Array.from(tokens);
-        };
-
-        this.requiresGlobalFallback = function () {
-            return domainPatterns.some(p => String(p || '').trim().charAt(0) === '/');
         };
 
         this.setURLPattern = function (urlPatterns) {
@@ -3845,15 +3826,16 @@ function start() {
     // The @@removeparam exceptions of every provider whose URL pattern
     // matches one of the request's page URLs (ideas from uBlock Origin's
     // per-page store and AdGuard's per-frame rule cache). The answer
-    // depends on the page URLs, the request type and method, the referral
+    // depends on the page URLs, target host, request type and method, the referral
     // marketing setting (which adds or removes exceptions) and the loaded
     // providers, so those make up the cache key.
-    function getContextRemoveParamExceptions(contextUrls, request) {
+    function getContextRemoveParamExceptions(contextUrls, request, targetHost) {
         if (!contextUrls || contextUrls.length === 0) return EMPTY_EXCEPTIONS;
         validateLookupCaches();
         const method = request && typeof request.method === 'string' ? request.method.toUpperCase() : '';
-        const key = getLinkumoriRequestType(request) + '\u0000' + method + '\u0000' +
-            (storage.referralMarketing ? '1' : '0') + '\u0000' + contextUrls.join('\u0001');
+        const requestType = getLinkumoriRequestType(request);
+        targetHost = normalizeAsciiHostname(targetHost) || '';
+        const key = JSON.stringify([requestType, method, targetHost, storage.referralMarketing, contextUrls]);
         let exceptions = contextExceptionsByKey.get(key);
         if (exceptions !== undefined) return exceptions;
 
@@ -3874,20 +3856,24 @@ function start() {
             // URL pattern is not checked.
             const providerExceptions = provider.getLinkumoriRemoveParamExceptions();
             if (providerExceptions.length === 0) continue;
-            const matchesContext = contextUrls.some(cu => { try { return provider.matchURL(cu); } catch (e) { return false; } });
-            if (!matchesContext) continue;
+            const pages = contextUrls.filter(cu => provider.matchURL(cu));
+            if (pages.length === 0) continue;
             const index = getLinkumoriParamUrlIndex(providerExceptions);
             let candidates = index.fallback;
             if (index.hostBuckets.size > 0 || index.urlBuckets.size > 0) {
                 const matched = new Set();
-                for (const url of contextUrls) {
-                    if (url) addLinkumoriParamUrlCandidates(index, url, matched);
+                for (const url of pages) {
+                    addLinkumoriParamUrlCandidates(index, url, matched);
                 }
                 if (matched.size > 0) candidates = [...candidates, ...matched].sort((a, b) => a - b);
             }
             for (const i of candidates) {
                 const er = providerExceptions[i];
-                if (linkumoriRemoveParamExceptionMatchesContext(er, contextUrls, request)) collected.push(er);
+                // The provider and exception pattern must cover the same page.
+                // Party and to= modifiers refer to the resource that page loaded.
+                if (pages.some(page => matchLinkumoriRemoveParamTarget(er, page, request, false, targetHost, requestType, false))) {
+                    collected.push(er);
+                }
             }
         }
         exceptions = collected.length > 0 ? Object.freeze(collected) : EMPTY_EXCEPTIONS;
@@ -3954,7 +3940,7 @@ function start() {
                 if (globalLinkumoriExceptions === null) {
                     const contextUrls = (request.type !== 'main_frame')
                         ? requestContextManager.getContextURLs(request) : [];
-                    globalLinkumoriExceptions = getContextRemoveParamExceptions(contextUrls, request);
+                    globalLinkumoriExceptions = getContextRemoveParamExceptions(contextUrls, request, requestURLObject.hostname);
                 }
                 return globalLinkumoriExceptions;
             };

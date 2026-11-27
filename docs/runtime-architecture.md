@@ -445,7 +445,9 @@ indexes providers by hostname token:
   checked against **every** URL:
   - a `urlPattern` provider without `indexPattern` (which is why
     `lint-rules` warns about it);
-  - a provider with a `/regex/` domain pattern.
+  - a provider with any domain pattern that can match without a particular
+    hostname label. Examples include `*`, `/regex/`, and an unanchored word
+    such as `campaign`, which can occur in the path or query.
 - **Cache.** `getCandidateProvidersForHost(host)` keeps each host's
   candidate list (up to 512 hosts). It is dropped when the providers are
   rebuilt or the Public Suffix List finishes loading.
@@ -581,8 +583,10 @@ whitelist check and `clearUrl()` share it.
 
 The `@@` exceptions that come from the page (`getContextRemoveParamExceptions`)
 are collected only when a provider is about to clean the request, and are
-cached (up to 512 entries) by page URLs, request type, method and the
-referral marketing setting, since nothing else changes the answer. The cache
+cached (up to 512 entries) by page URLs, target hostname, request type,
+method and the referral marketing setting. The provider and its exception
+pattern must match the same page. Party and `to=` checks use the hostname
+of the requested resource. The cache
 is dropped when the providers are rebuilt or the Public Suffix List finishes
 loading. Providers with no `@@` entries are not checked against the page.
 
